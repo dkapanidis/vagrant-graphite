@@ -25,19 +25,19 @@ class graphite {
   }
 
   exec {"extract graphite-web":
-    command => "tar -zxvf graphite-web.tar.gz && mv graphite-web-0.9.9 graphite-web",
+    command => "rm -rf graphite-web; tar -zxvf graphite-web.tar.gz && mv graphite-web-0.9.9 graphite-web",
     require => Exec["download graphite-web"],
   }
   
 
   exec {"extract carbon":
-    command => "tar -zxvf carbon.tar.gz && mv carbon-0.9.9 carbon",
+    command => "rm -rf carbon; tar -zxvf carbon.tar.gz && mv carbon-0.9.9 carbon",
     require => Exec["download carbon"],
   }
   
 
   exec {"extract whisper":
-    command => "tar -zxvf whisper.tar.gz && mv whisper-0.9.9 whisper",
+    command => "rm -rf whisper; tar -zxvf whisper.tar.gz && mv whisper-0.9.9 whisper",
     require => Exec["download whisper"],
   }
   
@@ -54,11 +54,16 @@ class graphite {
     require => Exec["extract whisper"],
   }
 
+  include 'graphite::config::carbon'
+  
   exec {"install graphite-web":
     cwd     => "/root/graphite-web",
-    command => "python setup.py install",
+    command => "python check-dependencies.py && python setup.py install",
     require => Exec["extract whisper"],
   }
+
+  include 'graphite::config::apache'
+
 }
 
 
