@@ -68,6 +68,9 @@ class graphite {
     ensure => directory,
   }
 
+  file {'/opt/graphite/webapp/graphite/local_settings.py':
+    source => '/opt/graphite/webapp/graphite/local_settings.py.example',
+  }
 }
 
 
