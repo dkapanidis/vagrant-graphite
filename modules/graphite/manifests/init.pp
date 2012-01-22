@@ -3,7 +3,7 @@ class graphite {
 
 
   package {
-    ["apache2", "apache2-mpm-worker", "apache2-utils", "apache2.2-bin", "apache2.2-common", "libapr1", "libaprutil1", "libaprutil1-dbd-sqlite3", "python3.1", "libpython3.1", "python3.1-minimal", "libapache2-mod-wsgi", "libaprutil1-ldap", "memcached", "python-cairo-dev", "python-django", "python-ldap", "python-memcache", "python-pysqlite2", "sqlite3", "erlang-os-mon", "erlang-snmp", "rabbitmq-server", "bzr", "expect", "ssh", "libapache2-mod-python", "python-setuptools", "python-django-tagging"]:
+    ["apache2", "apache2-mpm-worker", "apache2-utils", "apache2.2-bin", "apache2.2-common", "libapr1", "libaprutil1", "libaprutil1-dbd-sqlite3", "python3.1", "libpython3.1", "python3.1-minimal", "libapache2-mod-wsgi", "libaprutil1-ldap", "memcached", "python-cairo-dev", "python-django", "python-ldap", "python-memcache", "python-pysqlite2", "sqlite3", "erlang-os-mon", "erlang-snmp", "rabbitmq-server", "bzr", "expect", "ssh", "libapache2-mod-python", "python-setuptools", "python-django-tagging", "python-twisted"]:
     ensure => installed,
   }
 
