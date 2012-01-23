@@ -22,13 +22,14 @@ Once the VM is up and running you need to do the following:
 
 <pre>
 vagrant ssh
+sudo su -
 
-cd /opt/graphite/webapp/graphite/ && sudo python manage.py syncdb
-sudo chown -R www-data:www-data /opt/graphite/storage/
-sudo /etc/init.d/apache2 restart
+cd /opt/graphite/webapp/graphite/ && python manage.py syncdb
+chown -R www-data:www-data /opt/graphite/storage/
+/etc/init.d/apache2 restart
 
-cd /opt/graphite/ && sudo ./bin/carbon-cache.py start
+cd /opt/graphite/ && ./bin/carbon-cache.py start
 
-cd ~/graphite/examples && sudo chmod +x example-client.py
-sudo ./example-client.py
+cd ~/graphite-web/examples && chmod +x example-client.py
+./example-client.py
 </pre>
